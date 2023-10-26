@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %} Personas {% endblock %}
+
+{%block Content %} 
+
+ACA VA EL CONTENIDO
+<a class="btn btn-primary" href="{% url 'crearpersona' %}" role="button">Agregar Persona</a>
+<div class="card">
+    <div class="card-header">
+      Personas Registradas
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Personas</h5>
+      <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Correo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          {% for datos in daticos %}
+          <tr class="table-active">
+            <td class="table-active">{{datos.Nombre}}</td>
+            <td>{{datos.Edad}}</td>
+            <td>{{datos.Correo}}</td>
+            <td><a class="btn btn-warning" href="{% url 'editarpersona' %}" role="button">Editar</a> | <a class="btn btn-danger" href="{% url 'crearpersona' %}" role="button">Eliminar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}
